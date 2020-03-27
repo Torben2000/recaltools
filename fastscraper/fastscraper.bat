@@ -32,6 +32,9 @@ rem Flags - Static parameters
 	rem If true, download videos.
 		set downloadVideo=-download_videos="false"
 
+	rem If true, download normalized videos instead of default. Requires download_videos to be set to true
+		set normalizedVideo=-normalized_videos="false"
+
 	rem Comma-separated list of extensions to also include in the scraper.
 		set extraExt=-extra_ext=".scummvm,.ipf,.mx1,.mx2,.exe,.ws,.wsc,.wad,.dsk,.tap,.trd,.tzx,.z80,.p,.a0,.crt,.nib,.do,.po"
 
@@ -227,7 +230,7 @@ rem If mame device, consoleImg not used
 rem Scraping roms
 	echo %dict[17]% %%i %dict[18]%
 	echo.
-"%~dp0scraper.exe" %appendMode% !arcade! -rom_dir="%%i" %imagePath% -image_dir="%%i\%imagePath:~15,-1%" %imageSuffix% %marqueePath% -marquee_dir="%%i\%marqueePath:~17,-1%" %marqueeSuffix% %videoPath% -video_dir="%%i\%videoPath:~15,-1%" %videoSuffix% %convertVideo% -output_file="%%i\gamelist.xml" -missing="%%i\_%%i_missing.txt" %addNotFound% !consoleImg! %consoleSrc% %downloadImg% %downloadMarquee% %downloadVideo% %extraExt% %imgFormat% %marqueeFormat% %langSS% %maxHeight% %maxWidth% %noThumb% %thumbOnly% %refreshXML% %regionSS% %username% %password% %useFilename% %useNoIntroName% %workersN%
+"%~dp0scraper.exe" %appendMode% !arcade! -rom_dir="%%i" %imagePath% -image_dir="%%i\%imagePath:~15,-1%" %imageSuffix% %marqueePath% -marquee_dir="%%i\%marqueePath:~17,-1%" %marqueeSuffix% %videoPath% -video_dir="%%i\%videoPath:~15,-1%" %videoSuffix% %convertVideo% -output_file="%%i\gamelist.xml" -missing="%%i\_%%i_missing.txt" %addNotFound% !consoleImg! %consoleSrc% %downloadImg% %downloadMarquee% %downloadVideo% %normalizedVideo% %extraExt% %imgFormat% %marqueeFormat% %langSS% %maxHeight% %maxWidth% %noThumb% %thumbOnly% %refreshXML% %regionSS% %username% %password% %useFilename% %useNoIntroName% %workersN%
 	echo.
 	
 )
